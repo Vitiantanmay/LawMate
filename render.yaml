@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: backend
+    name: lawmate-backend
     env: python
     rootDir: backend
     buildCommand: pip install -r requirements.txt
@@ -10,7 +10,7 @@ services:
         sync: false
 
   - type: web
-    name: frontend
+    name: lawmate-frontend
     env: node
     rootDir: frontend
     buildCommand: npm install && npm run build
