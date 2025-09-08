@@ -2,16 +2,13 @@ services:
   - type: web
     name: lawmate-backend
     env: python
-    rootDir: backend
+    rootDir: lawmate-backend
     buildCommand: pip install -r requirements.txt
-    startCommand: python app.py
-    envVars:
-      - key: GEMINI_API_KEY
-        sync: false
+    startCommand: gunicorn -w 4 -b 0.0.0.0:5000 app:app
 
   - type: web
     name: lawmate-frontend
     env: node
-    rootDir: frontend
+    rootDir: lawmate-frontend
     buildCommand: npm install && npm run build
     startCommand: npm start
